@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: kuzmich
+  password: 1234567890
+
+development:
+  <<: *default
+  host: localhost
+  database: axela_app
+
+production:
+  <<: *default
+  encoding: unicode
+  pool: 15
+  url:  <%= ENV["DATABASE_URL"] %>
+  database: axela_app
+  password: 1234567890
+  username: kuzmich
+
+test:
+  <<: *default
+  host: localhost
+  database: axela_test
