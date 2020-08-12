@@ -7,5 +7,7 @@
   <%= f.text_field :name %>
   <%= f.label :description %>
   <%= f.text_area :description %>
+  <%= f.label :adpost_image %>
+  <%= f.file_field :adpost_image %>
   <%= f.submit "Add advert", class: "btn btn-primary" %>
 <% end %>

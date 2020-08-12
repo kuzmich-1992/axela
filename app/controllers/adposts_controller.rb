@@ -5,7 +5,7 @@ class AdpostsController < ApplicationController
   end
 
   def new
-    @adpost = Adpost.new(params[:name, :description])
+    @adpost = Adpost.new(params[:name, :description, :adpost_image ])
   end
 
   def create
@@ -26,6 +26,6 @@ class AdpostsController < ApplicationController
   end
 
   def adposts_params
-  	params.require(:adpost).permit(:name, :description)
+  	params.require(:adpost).permit(:name, :description, :adpost_image)
   end
 end
