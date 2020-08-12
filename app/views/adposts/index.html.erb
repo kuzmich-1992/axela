@@ -1,0 +1,11 @@
+<ol class="adposts">
+  <%= render @adposts %>
+</ol>
+
+<%= form_for Adpost.new do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "Add advert", class: "btn btn-primary" %>
+<% end %>
