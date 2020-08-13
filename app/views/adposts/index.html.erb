@@ -1,17 +1,27 @@
-<ol class="adposts">
-  <%= render @adposts %>
-</ol>
-<%if user_signed_in?%>
 <div class="container">
-<%= form_for Adpost.new do |f| %>
-  <p><%= f.label :name %></p>
-  <p><%= f.text_field :name %></p>
-  <p><%= f.label :description %></p>
-  <p><%= f.text_area :description %></p>
-  <p><%= f.label :adpost_image %></p>
-  <p><%= f.file_field :adpost_image %></p>
-  <p><%= f.submit "Add advert", class: "btn btn-primary" %></p>
-<% end %>
+  <div class="row">
+    <div class="col-md-8">
+      <ol class="adposts">
+        <%= render @adposts %>
+      </ol>
+    </div>
+
+    <div class="col-md-4">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
+          <%if user_signed_in?%>
+            <div class="container text-center">
+            <%= form_for Adpost.new do |f| %>
+              <p><%= f.label :name %></p>
+              <p><%= f.text_field :name %></p>
+              <p><%= f.label :description %></p>
+              <p><%= f.text_area :description %></p>
+              <p><%= f.label :adpost_image %></p>
+              <p><%= f.file_field :adpost_image %></p>
+              <p><%= f.submit "Add advert", class: "btn btn-primary" %></p>
+            <% end %>
+            </div>
+          <%end%>
+        </div>
+    </div>
+  </div>
 </div>
-<end>
-<%end%>
