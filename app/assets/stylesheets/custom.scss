@@ -1,0 +1,29 @@
+/* adposts */
+
+.adposts {
+  list-style: none;
+  padding: 0;
+
+  .adpost_image {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  
+
+  .name {
+    float: left;
+    margin-top: 5em;
+    padding-top: 0;
+  }
+
+  .description {
+    float: left;
+    display: block;
+    margin-top: 5em;
+    padding-top: 0;
+    
+  }
+ 
+}
+

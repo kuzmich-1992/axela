@@ -1,13 +1,14 @@
 <ol class="adposts">
   <%= render @adposts %>
 </ol>
-
+<div class="container">
 <%= form_for Adpost.new do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :adpost_image %>
-  <%= f.file_field :adpost_image %>
-  <%= f.submit "Add advert", class: "btn btn-primary" %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :description %></p>
+  <p><%= f.text_area :description %></p>
+  <p><%= f.label :adpost_image %></p>
+  <p><%= f.file_field :adpost_image %></p>
+  <p><%= f.submit "Add advert", class: "btn btn-primary" %></p>
 <% end %>
+</div>
