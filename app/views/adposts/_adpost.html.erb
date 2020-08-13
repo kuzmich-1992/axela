@@ -1,7 +1,7 @@
 	<li id="adpost-<%= adpost.id %>">
 	  <div class="container">
       <div class="row">
-	    <div class="col-md-4"><%=link_to image_tag adpost.adpost_image.url(:medium) %></div>
+	    <div class="col-md-4"><%=image_tag adpost.adpost_image.url(:medium) %></div>
 	    <div class="col-md-8">
 	      <p><%= adpost.name %>
 	      <p><%= adpost.description %>
