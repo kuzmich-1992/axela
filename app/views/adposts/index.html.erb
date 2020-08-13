@@ -1,6 +1,7 @@
 <ol class="adposts">
   <%= render @adposts %>
 </ol>
+<%if user_signed_in?%>
 <div class="container">
 <%= form_for Adpost.new do |f| %>
   <p><%= f.label :name %></p>
@@ -12,3 +13,5 @@
   <p><%= f.submit "Add advert", class: "btn btn-primary" %></p>
 <% end %>
 </div>
+<end>
+<%end%>
