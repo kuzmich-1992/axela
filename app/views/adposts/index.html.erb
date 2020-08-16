@@ -10,15 +10,44 @@
         <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
           <%if user_signed_in?%>
             <div class="container text-center">
+            <div class="form-group">
             <%= form_for Adpost.new do |f| %>
-              <p><%= f.label :name %></p>
-              <p><%= f.text_field :name %></p>
-              <p><%= f.label :description %></p>
-              <p><%= f.text_area :description %></p>
+              <p><%= f.label :price %></p>
+              <p><%= f.text_field :price %></p>
+              <p><%= f.label :year %></p>
+              <p><%= f.text_field :year %></p>
+              <p><label for="model">Model</label></p>
+              <%= f.select :model, ['option1', 'option2']%>
+              <p> 
+              	<%= select_tag(:model, options_for_select([['Lisbon'], ['Madrid'], ['Berlin']])) %>
+              </p>
+              <p><label for="serie">Serie</label></p>
+              <p><select class="serie">
+			    <option value="1">BK serie - first generation</option>
+			    <option value="2">BL serie - second generation</option>
+              </select></p>
+               <p><label for="body">Body</label></p>
+              <p><select class="body">
+			    <option value="1">sedan</option>
+			    <option value="2">hatchback</option>
+              </select></p>
+               <p><label for="gearbox">Type of gear</label></p>
+              <p><select class="gearbox">
+			    <option value="1">Automatic gear</option>
+			    <option value="2">Manual gear</option>
+              </select></p>
+              <p><label for="engine_type">Engine type</label></p>
+              <p><select class="engine_type">
+			    <option value="1">Petrol</option>
+			    <option value="2">Diesel</option>
+              </select></p>
+              <p><%= f.label :location %></p>
+              <p><%= f.text_field :location %></p>
               <p><%= f.label :adpost_image %></p>
               <p><%= f.file_field :adpost_image %></p>
               <p><%= f.submit "Add advert", class: "btn btn-primary" %></p>
             <% end %>
+            </div>
             </div>
           <%end%>
         </div>
