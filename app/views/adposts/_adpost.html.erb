@@ -6,14 +6,14 @@
       <div class="row">
 	    <div class="col-md"><%=image_tag adpost.adpost_image.url(:medium) %></div>
 	    <div class="col-md">
-	      <p><%= adpost.price %></p>
-	      <p><%= adpost.year %></p>
-	      <p><%= adpost.model %></p>
-	      <p><%= adpost.serie %></p>
-	      <p><%= adpost.body %></p>
-	      <p><%= adpost.gearbox %></p>
-	      <p><%= adpost.engine_type %></p>
-	      <p><%= adpost.location %></p>
+	      <p>Price, USD: <%= adpost.price %></p>
+	      <p>Year of production: <%= adpost.year %></p>
+	      <p>Model: <%= adpost.model %></p>
+	      <p>Serie: <%= adpost.serie %></p>
+	      <p>Body type: <%= adpost.body %></p>
+	      <p>Type of gear: <%= adpost.gearbox %></p>
+	      <p>Type of engine: <%= adpost.engine_type %></p>
+	      <p>Location: <%= adpost.location %></p>
 	    </div>
 	  </div>
       </div>

@@ -5,7 +5,7 @@ class AdpostsController < ApplicationController
   end
 
   def new
-    @adpost = Adpost.new(params[:price, :year, :model, :serie, :body, :gearbox, :engine_type, :location, :adpost_image ])
+    @adpost = Adpost.new(adposts_params)
   end
 
   def create

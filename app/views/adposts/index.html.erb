@@ -17,30 +17,25 @@
               <p><%= f.label :year %></p>
               <p><%= f.text_field :year %></p>
               <p><label for="model">Model</label></p>
-              <%= f.select :model, ['option1', 'option2']%>
-              <p> 
-              	<%= select_tag(:model, options_for_select([['Lisbon'], ['Madrid'], ['Berlin']])) %>
+              <p>
+                <%= f.select :model, ['mazda axela, JP specs', 'mazda-3, worldwide specs']%>	
               </p>
               <p><label for="serie">Serie</label></p>
-              <p><select class="serie">
-			    <option value="1">BK serie - first generation</option>
-			    <option value="2">BL serie - second generation</option>
-              </select></p>
-               <p><label for="body">Body</label></p>
-              <p><select class="body">
-			    <option value="1">sedan</option>
-			    <option value="2">hatchback</option>
-              </select></p>
-               <p><label for="gearbox">Type of gear</label></p>
-              <p><select class="gearbox">
-			    <option value="1">Automatic gear</option>
-			    <option value="2">Manual gear</option>
-              </select></p>
+              <p>
+                <%= f.select :serie, ['BK serie', 'BL serie']%>	
+              </p>
+              <p><label for="body">Body</label></p>
+              <p>
+                <%= f.select :body, ['sedan', 'hatchback']%>	
+              </p>
+              <p><label for="gearbox">Type of gear</label></p>
+              <p>
+                <%= f.select :gearbox, ['automatic gearbox', 'manual gearbox']%>	
+              </p>
               <p><label for="engine_type">Engine type</label></p>
-              <p><select class="engine_type">
-			    <option value="1">Petrol</option>
-			    <option value="2">Diesel</option>
-              </select></p>
+              <p>
+                <%= f.select :engine_type, ['petrol engine', 'diesel engine']%>	
+              </p>
               <p><%= f.label :location %></p>
               <p><%= f.text_field :location %></p>
               <p><%= f.label :adpost_image %></p>
