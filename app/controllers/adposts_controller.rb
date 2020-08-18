@@ -1,7 +1,7 @@
 class AdpostsController < ApplicationController
   
   def index
-    @adposts = Adpost.all
+    @adposts = Adpost.includes(:user)
   end
 
   def new
