@@ -1,7 +1,7 @@
 class AdpostsController < ApplicationController
   
   def index
-    @adposts = Adpost.includes(:user)
+    @adposts = Adpost.includes(:user) # without N+1 query
   end
 
   def new
@@ -11,7 +11,10 @@ class AdpostsController < ApplicationController
   def create
     @adpost = current_user.adposts.build(adposts_params)
     if @adpost.save
-      redirect_to request.referrer || root_url
+      respond_to do |format|
+        format.json 
+        format.html
+      end
     end
   end
 
