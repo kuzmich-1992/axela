@@ -11,13 +11,11 @@ class AdpostsController < ApplicationController
 
   def create
     @adpost = current_user.adposts.build(adposts_params)
-    if @adpost.save
+    if @adpost.save!
       respond_to do |format|
-        format.json
-        format.js 
-        format.html
+        format.json { head :no_content }
+        format.html { redirect_to request.referrer }
       end
-      redirect_to request.referrer
     end
   end
 
@@ -30,7 +28,7 @@ class AdpostsController < ApplicationController
   def show
     @adpost = Adpost.find(params[:id])
   end
-
+  
   def adposts_params
   	params.require(:adpost).permit(:price, :year, :model, :serie, :body, :gearbox, :engine_type, :location, :adpost_image)
   end
