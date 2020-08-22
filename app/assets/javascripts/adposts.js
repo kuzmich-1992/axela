@@ -1,7 +1,10 @@
 
 $(document).ready(function(){
-  $('#adposts button').on('click',function(event) {
+  $('#submitadv').on('click',function(event) {
   event.preventDefault();
+
+    var $li = $(event.target.parentNode)
+    const adpost_id = $li.data('adpostId');
     
     var price = jQuery("#price").val();
     var year = jQuery("#year").val();
@@ -18,10 +21,20 @@ $(document).ready(function(){
                      '&location=' + location + '&adpost_image=' + adpost_image; 
     
     $.ajax({
-      method: "PATCH",  
-      url: '/adposts/' + user_id,  
+      method: "POST",  
+      url: '/adposts' => 'adposts#create',
       data: dataString,
       datatype: 'json',
+      success: function (textStatus, status) {
+        console.log(textStatus);
+        console.log(status);
+      },
+      error: function(xhr, textStatus, error) {
+        console.log(xhr.responseText);
+        console.log(xhr.statusText);
+        console.log(textStatus);
+        console.log(error);
+      },
     }).done(function(data){
       const price = data.price;
   	  const year = data.year;
@@ -32,15 +45,15 @@ $(document).ready(function(){
   	  const engine_type = data.engine_type;
   	  const location = data.location;
   	  const adpost_image = data.adpost_image;
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-price").append(price)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-year").append(year)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-model").append(model)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-serie").append(serie)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-body").append(body)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-gearbox").append(gearbox)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-engine_type").append(engine_type)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-location").append(location)
-  	  $("[data-adpost-id=" + adpost_id + "] .adpost-info .adpost-adpost_image").append(adpost_image)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-price").append(price)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-year").append(year)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-model").append(model)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-serie").append(serie)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-body").append(body)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-gearbox").append(gearbox)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-engine_type").append(engine_type)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-location").append(location)
+  	  $("[data-adpost-id=" + adpost_id + "] .adposts .adpost-adpost_image").append(adpost_image)
     }); 
     
     });

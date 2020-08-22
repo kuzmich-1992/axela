@@ -1,4 +1,5 @@
 class AdpostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   
   def index
     @adposts = Adpost.includes(:user) # without N+1 query
@@ -12,9 +13,11 @@ class AdpostsController < ApplicationController
     @adpost = current_user.adposts.build(adposts_params)
     if @adpost.save
       respond_to do |format|
-        format.json 
+        format.json
+        format.js 
         format.html
       end
+      redirect_to request.referrer
     end
   end
 
