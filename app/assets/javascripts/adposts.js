@@ -14,6 +14,10 @@ $(document).ready(function(){
     var engine_type  = jQuery("#engine_type").val(); 
     var location  = jQuery("#location").val(); 
     var adpost_image = jQuery("#adpost_image").val(); 
+
+    var dataString = { price:price , year:year , model:model };
+
+    console.log(dataString);
     
     $.ajax({
       method: "POST",  
