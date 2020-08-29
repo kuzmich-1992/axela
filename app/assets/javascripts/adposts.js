@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#submitadv').on('click',function(event) {
   event.preventDefault();
 
-    var dataString = $('#adpost-form-group')
+    var dataString = $('#form')
     
     var price = jQuery("#price").val();
     var year = jQuery("#year").val();
@@ -14,36 +14,6 @@ $(document).ready(function(){
     var engine_type  = jQuery("#engine_type").val(); 
     var location  = jQuery("#location").val(); 
     
-
-   //  function base64(file, callback){
-   //    var coolFile = {};
-   //    function readerOnload(e){
-   //      var base64 = btoa(e.target.result);
-   //      coolFile.base64 = base64;
-   //      callback(coolFile)
-   //    };
-
-   //    var reader = new FileReader();
-   //    reader.onload = readerOnload;
-
-   //    var file = file[0].files[0];
-   //    coolFile.filetype = file.type;
-   //    coolFile.size = file.size;
-   //    coolFile.filename = file.name;
-   //    reader.readAsBinaryString(file);
-   //  };
-
-   //  // base64( $("#adpost_image"), function(data){
-     
-   //  // });
-
-   //  // // console.log(base64.data)
-
-   // base64( $("#adpost_image"), function(data){
-   //    console.log(base64.data)
-   // }); 
-
-
     var dataString = { price:price , year:year , model:model , serie:serie , body:body , gearbox:gearbox , 
                        engine_type:engine_type, location:location , adpost_image:adpost_image };
 

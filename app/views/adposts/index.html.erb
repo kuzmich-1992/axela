@@ -11,38 +11,42 @@
         <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
           <%if user_signed_in?%>
             <div class="container text-center">
-            <div class="adpost-form-group">
-            <%= form_for Adpost.new do |f| %>
-              <p><%= f.label :price%></p>
-              <p><%= f.text_field :price, id:'price' %></p>
-              <p><%= f.label :year %></p>
-              <p><%= f.text_field :year, id:'year' %></p>
-              <p><label for="model">Model</label></p>
-              <p>
-                <%= f.select :model, ['mazda axela, JP specs', 'mazda-3, worldwide specs'], {}, id: "model" %>
-              </p>
-              <p><label for="serie">Serie</label></p>
-              <p>
-                <%= f.select :serie, ['BK serie', 'BL serie'], {}, id:'serie'%>	
-              </p>
-              <p><label for="body">Body</label></p>
-              <p>
-                <%= f.select :body, ['sedan', 'hatchback'], {}, id:'body'%>	
-              </p>
-              <p><label for="gearbox">Type of gear</label></p>
-              <p>
-                <%= f.select :gearbox, ['automatic gearbox', 'manual gearbox'], {}, id:'gearbox'%>	
-              </p>
-              <p><label for="engine_type">Engine type</label></p>
-              <p>
-                <%= f.select :engine_type, ['petrol engine', 'diesel engine'], {}, id:'engine_type'%>	
-              </p>
-              <p><%= f.label :location%></p>
-              <p><%= f.text_field :location, id:'location'  %></p>
-              <p><%= f.label :adpost_image %></p>
-              <p><%= f.file_field :adpost_image, id:'adpost_image' %></p>
-              <p><%= f.submit "Add advert", class: "btn btn-primary", id: "submitadv"%></p>
-            <% end %>
+            <form enctype="multipart/form-data" method="post" name="adpost-form-group">
+              <p><label>Price: </label></p>
+              <p><input type="text" id="price" name="price"/></p>
+              <p><label>Year: </label></p>
+              <p><input type="text" name="year" id="year" /></p>
+              <p><label>Model: </label></p>
+              <p><select name="model" id="model" form="modelform">
+              	 <option value="mazda axela">mazda axela</option>
+                 <option value="mazda 3">mazda 3</option>
+              </select></p>
+              <p><label>Serie: </label></p>
+              <p><select name="serie" id="serie" form="serieform">
+              	 <option value="BK">BK</option>
+                 <option value="BL">BL</option>
+              </select></p>
+              <p><label>Body: </label></p>
+              <p><select name="body" id="body" form="bodyform">
+              	 <option value="sedan">sedan</option>
+                 <option value="hatch">hatch</option>
+              </select></p>
+              <p><label>Gearbox: </label></p>
+              <p><select name="geabox" id="gearbox" form="gearbox">
+              	 <option value="automatic">automatic</option>
+                 <option value="manual">manual</option>
+              </select></p>
+              <p><label>Engine_type: </label></p>
+              <p><select name="engine_type" id="engine_type" form="engine_type_form">
+              	 <option value="petrol">petrol</option>
+                 <option value="diesel">diesel</option>
+              </select></p>
+              <p><label>Location: </label></p>
+              <p><input type="text" id="location" name="location"/></p>
+              <p><label>Add photo:</label></p>
+              <p><input type="file" name="adpost_image" id="adpost_image"/></p>
+              <p><input type="submit" value="Add advert:" name="submitadv" /></p>
+            </form>
             </div>
             </div>
           <%end%>
