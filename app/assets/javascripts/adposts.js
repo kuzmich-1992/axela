@@ -1,39 +1,41 @@
+$(document).ready(function () {
+  $("#btnSubmit").click(function (event) {
+    event.preventDefault();
+      var form = $('#carform')[0];
+      var data = new FormData(form);
+      data.append("CustomField", "This is some extra data, testing");
+      $("#btnSubmit").prop("disabled", true);
 
-$(document).ready(function(){
-  $('#submitadv').on('click',function(event) {
-  event.preventDefault();
+      $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/adposts",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
 
-    var dataString = $('#form')
-    
-    var price = jQuery("#price").val();
-    var year = jQuery("#year").val();
-    var model = jQuery("#model").val();
-    var serie = jQuery("#serie").val();
-    var body  = jQuery("#body").val(); 
-    var gearbox  = jQuery("#gearbox").val(); 
-    var engine_type  = jQuery("#engine_type").val(); 
-    var location  = jQuery("#location").val(); 
-    
-    var dataString = { price:price , year:year , model:model , serie:serie , body:body , gearbox:gearbox , 
-                       engine_type:engine_type, location:location , adpost_image:adpost_image };
+                $("#result").text(data);
+                console.log("SUCCESS : ", data);
+                $("#btnSubmit").prop("disabled", false);
 
-    console.log(dataString);
-    
-    $.ajax({
-      method: "POST",  
-      url: '/adposts',
-      data:{ adpost : dataString },
-      dataType: 'json',
-    }).done(function(data){
-    
-      console.log('success');
+            },
+            error: function (e) {
 
-    }).fail(function() {
-      
-      console.log('fail');
+                $("#result").text(e.responseText);
+                console.log("ERROR : ", e);
+                $("#btnSubmit").prop("disabled", false);
+
+            }
+        });
 
     });
-    
-    });
 
-  });
+});
+
+
+
+
+ 

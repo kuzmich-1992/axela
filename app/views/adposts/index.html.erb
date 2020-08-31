@@ -11,33 +11,33 @@
         <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
           <%if user_signed_in?%>
             <div class="container text-center">
-            <form enctype="multipart/form-data" method="post" name="adpost-form-group">
+            <form method="POST" enctype="multipart/form-data" id="carform">
               <p><label>Price: </label></p>
               <p><input type="text" id="price" name="price"/></p>
               <p><label>Year: </label></p>
               <p><input type="text" name="year" id="year" /></p>
               <p><label>Model: </label></p>
-              <p><select name="model" id="model" form="modelform">
+              <p><select name="model" id="model" form="carform">
               	 <option value="mazda axela">mazda axela</option>
                  <option value="mazda 3">mazda 3</option>
               </select></p>
               <p><label>Serie: </label></p>
-              <p><select name="serie" id="serie" form="serieform">
+              <p><select name="serie" id="serie" form="carform">
               	 <option value="BK">BK</option>
                  <option value="BL">BL</option>
               </select></p>
               <p><label>Body: </label></p>
-              <p><select name="body" id="body" form="bodyform">
+              <p><select name="body" id="body" form="carform">
               	 <option value="sedan">sedan</option>
                  <option value="hatch">hatch</option>
               </select></p>
               <p><label>Gearbox: </label></p>
-              <p><select name="geabox" id="gearbox" form="gearbox">
+              <p><select name="geabox" id="gearbox" form="carform">
               	 <option value="automatic">automatic</option>
                  <option value="manual">manual</option>
               </select></p>
               <p><label>Engine_type: </label></p>
-              <p><select name="engine_type" id="engine_type" form="engine_type_form">
+              <p><select name="engine_type" id="engine_type" form="carform">
               	 <option value="petrol">petrol</option>
                  <option value="diesel">diesel</option>
               </select></p>
@@ -47,6 +47,8 @@
               <p><input type="file" name="adpost_image" id="adpost_image"/></p>
               <p><input type="submit" value="Add advert:" name="submitadv" /></p>
             </form>
+            <h6>Ajax Post Result</h6>
+            <span id="result"></span>
             </div>
             </div>
           <%end%>
