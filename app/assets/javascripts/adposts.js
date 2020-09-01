@@ -1,68 +1,102 @@
-// $(document).ready(function () {
-//   $("#btnSubmit").click(function (event) {
-//     event.preventDefault();
-//       var form = $('#carform')[0];
-//       var data = new FormData(form)
-
-//       $.ajax({
-//             type: "POST",
-//             enctype: 'multipart/form-data',
-//             url: "/adposts",
-//             data: data,
-//             processData: false,
-//             contentType: false,
-//             cache: false,
-//             timeout: 600000,
-//             success: function (data) {
-
-//                 $("#result").text(data);
-//                 console.log("SUCCESS : ", data);
-//                 $("#btnSubmit").prop("disabled", false);
-
-//             },
-//             error: function (e) {
-
-//                 $("#result").text(e.responseText);
-//                 console.log("ERROR : ", e);
-//                 $("#btnSubmit").prop("disabled", false);
-
-//             }
-//         });
-
-//     });
-
-// });
-
-
-
 $(document).ready(function(){
 
-    $("#btnSubmit").click(function(){
+  $('#submitadv').on('click',function(event) {
+  event.preventDefault();
 
-        var fd = new FormData();
-        var files = $('#file')[0].files[0];
-        var form = $('#carform')[0];
-        fd.append('file',files);
-        fd.append('carform');
+var fd = new FormData(document.querySelector("form"));
+fd.append("CustomField", "This is some extra data");
 
-        $.ajax({
-            url: '/adposts',
-            type: 'post',
-            dataType: 'json',
-            data: fd,
-            contentType: false,
-            processData: false,
-            success: function (data) {
+$.ajax({
+  url: '/adposts',
+  type: "POST",
+  data: fd,
+  dataType: 'json',
+  processData: false,  // Сообщить jQuery не передавать эти данные
+  contentType: false   // Сообщить jQuery не передавать тип контента
+});
 
-                
-                console.log("SUCCESS : ", data);
-               
-            },
-            error: function (e) {
+});
 
-                console.log("ERROR : ", e);
-              
-            },
-        });
-    });
-}); 
+});
+
+
+
+
+// $(document).ready(function(){
+//   
+
+//     var dataString = $('#adpost-form-group')
+    
+//     var price = jQuery("#price").val();
+//     var year = jQuery("#year").val();
+//     var model = jQuery("#model").val();
+//     var serie = jQuery("#serie").val();
+//     var body  = jQuery("#body").val(); 
+//     var gearbox  = jQuery("#gearbox").val(); 
+//     var engine_type  = jQuery("#engine_type").val(); 
+//     var location  = jQuery("#location").val();
+
+//     var fd = new FormData();
+//     var file = $('#adpost_image');
+    
+//     fd.append('file',file);
+//     fd.append('price',price);
+//     fd.append( 'year',year);
+//     fd.append( 'model',model);
+//     fd.append( 'serie',serie);
+//     fd.append( 'body',body);
+//     fd.append( 'gearbox',gearbox);
+//     fd.append( 'engine_type',engine_type);
+//     fd.append( 'location',location);
+//     debugger;
+//     console.log(fd.data);
+
+//    //  function base64(file, callback){
+//    //    var coolFile = {};
+//    //    function readerOnload(e){
+//    //      var base64 = btoa(e.target.result);
+//    //      coolFile.base64 = base64;
+//    //      callback(coolFile)
+//    //    };
+
+//    //    var reader = new FileReader();
+//    //    reader.onload = readerOnload;
+
+//    //    var file = file[0].files[0];
+//    //    coolFile.filetype = file.type;
+//    //    coolFile.size = file.size;
+//    //    coolFile.filename = file.name;
+//    //    reader.readAsBinaryString(file);
+//    //  };
+
+
+//    // base64( $("#adpost_image"), function(data){
+//    //    console.log(base64.data)
+//    // }); 
+
+
+//     // var dataString = { price:price , year:year , model:model , serie:serie , body:body , gearbox:gearbox , 
+//     //                    engine_type:engine_type, location:location , adpost_image:fd };
+
+//     // console.log(dataString);
+    
+//     $.ajax({
+//       method: "POST",  
+//       url: '/adposts',
+//       data:fd,
+//       processData: false,
+//       contentType: false,
+//       dataType: 'json',
+//     }).done(function(data){
+    
+//       console.log('success');
+
+//     }).fail(function() {
+      
+//       console.log('fail');
+
+//     });
+    
+//     });
+
+//   });

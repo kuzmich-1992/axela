@@ -11,7 +11,52 @@
         <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
           <%if user_signed_in?%>
             <div class="container text-center">
-            <form enctype="multipart/form-data" id="carform">
+            <div class="adpost-form-group">
+            <%= form_for Adpost.new do |f| %>
+              <p><%= f.label :price%></p>
+              <p><%= f.text_field :price, id:'price' %></p>
+              <p><%= f.label :year %></p>
+              <p><%= f.text_field :year, id:'year' %></p>
+              <p><label for="model">Model</label></p>
+              <p>
+                <%= f.select :model, ['mazda axela, JP specs', 'mazda-3, worldwide specs'], {}, id: "model" %>
+              </p>
+              <p><label for="serie">Serie</label></p>
+              <p>
+                <%= f.select :serie, ['BK serie', 'BL serie'], {}, id:'serie'%>	
+              </p>
+              <p><label for="body">Body</label></p>
+              <p>
+                <%= f.select :body, ['sedan', 'hatchback'], {}, id:'body'%>	
+              </p>
+              <p><label for="gearbox">Type of gear</label></p>
+              <p>
+                <%= f.select :gearbox, ['automatic gearbox', 'manual gearbox'], {}, id:'gearbox'%>	
+              </p>
+              <p><label for="engine_type">Engine type</label></p>
+              <p>
+                <%= f.select :engine_type, ['petrol engine', 'diesel engine'], {}, id:'engine_type'%>	
+              </p>
+              <p><%= f.label :location%></p>
+              <p><%= f.text_field :location, id:'location'  %></p>
+              <p><%= f.label :adpost_image %></p>
+              <p><%= f.file_field :adpost_image, id:'adpost_image' %></p>
+              <p><%= f.submit "Add advert", class: "btn btn-primary", id: "submitadv"%></p>
+            <% end %>
+            </div>
+            </div>
+          <%end%>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- <div class="col-md-4">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #FFFF99;">
+          <% user_signed_in?%>
+            <div class="container text-center">
+            <form class="adpost-form-group">
               <p><label>Price: </label></p>
               <p><input type="text" id="price" name="price"/></p>
               <p><label>Year: </label></p>
@@ -51,8 +96,9 @@
             <span id="result"></span>
             </div>
             </div>
-          <%end%>
+          <%%>
         </div>
     </div>
   </div>
 </div>
+ -->
