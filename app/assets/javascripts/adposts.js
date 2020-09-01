@@ -13,7 +13,7 @@ $(document).ready(function(){
     var gearbox  = jQuery("#gearbox").val(); 
     var engine_type  = jQuery("#engine_type").val(); 
     var location  = jQuery("#location").val(); 
-    
+    var adpost_image  = jQuery("#adpost_image").val(); 
 
    //  function base64(file, callback){
    //    var coolFile = {};
@@ -33,11 +33,6 @@ $(document).ready(function(){
    //    reader.readAsBinaryString(file);
    //  };
 
-   //  // base64( $("#adpost_image"), function(data){
-     
-   //  // });
-
-   //  // // console.log(base64.data)
 
    // base64( $("#adpost_image"), function(data){
    //    console.log(base64.data)
