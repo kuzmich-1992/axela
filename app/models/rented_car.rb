@@ -1,0 +1,2 @@
+class RentedCar < ApplicationRecord
+end

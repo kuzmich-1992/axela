@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_100501) do
+ActiveRecord::Schema.define(version: 2020_09_09_043640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,19 @@ ActiveRecord::Schema.define(version: 2020_08_16_100501) do
     t.string "engine_type"
     t.string "location"
     t.index ["user_id"], name: "index_adposts_on_user_id"
+  end
+
+  create_table "rented_cars", force: :cascade do |t|
+    t.string "price_per_day"
+    t.string "model"
+    t.string "serie"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "rented_car_image_file_name"
+    t.string "rented_car_image_content_type"
+    t.integer "rented_car_image_file_size"
+    t.datetime "rented_car_image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

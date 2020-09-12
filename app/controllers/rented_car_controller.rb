@@ -1,0 +1,2 @@
+class RentedCarController < ApplicationController
+end
