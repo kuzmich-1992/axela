@@ -1,0 +1,19 @@
+ <div class="row">
+   <div class="card-body" style="background-color: #CCCCCC;">
+     <%= form_for RentedCar.new do |f| %>
+       <div class="row">
+       <div class="col-md">
+         <p><%= f.label :price_per_day%></p>
+         <p><%= f.text_field :price_per_day, id:'price_per_day' %></p>
+         <p><%= f.label :serie%></p>
+       </div>
+       <div class="col-md">
+         <p><%= f.label :location%></p>
+         <p><%= f.label :rented_car_image%></p>
+       </div>
+       </div>
+     <%end%>
+   </div>
+ </div>
+
+ 
