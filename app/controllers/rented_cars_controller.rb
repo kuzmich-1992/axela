@@ -9,7 +9,7 @@ class RentedCarsController < ApplicationController
   end
  
   def create
-    @Rented_car = current_user.rented_cars.build(rented_cars_params)
+    @rented_car = current_user.rented_cars.build(rented_cars_params)
     if @rented_car.save!
       respond_to do |format|
         format.json { render json: @rented_car }

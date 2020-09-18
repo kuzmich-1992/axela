@@ -6,12 +6,21 @@
          <p><%= f.label :price_per_day%></p>
          <p><%= f.text_field :price_per_day, id:'price_per_day' %></p>
          <p><%= f.label :serie%></p>
+         <p>
+           <%= f.select :serie, ['BK serie', 'BL serie'], {}, id:'serie'%>	
+         </p>
        </div>
        <div class="col-md">
          <p><%= f.label :location%></p>
+         <p><%= f.text_field :location, id:'location'%></p>
          <p><%= f.label :rented_car_image%></p>
+         <p><%= f.file_field :rented_car_image, id:'rented_car_image'%></p>
+         <p><%= f.submit "Add rented car", class: "btn btn-primary", id: "submitcar"%></p>
        </div>
        </div>
+       <div class="rented_cars" id='r_cars'>
+         <%= render @rented_cars %>
+      </div>
      <%end%>
    </div>
  </div>

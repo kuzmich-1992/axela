@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :adposts 
-  has_many :rent_leases
-  has_many :rented_cars ,through: :rent_leases
+  # has_many :rent_leases
+  # has_many :rented_cars ,through: :rent_leases
+  has_many :rented_cars
 end
