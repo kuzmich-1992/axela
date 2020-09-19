@@ -1,0 +1,19 @@
+<div class="card border-dark mb-3">
+<div class="card">
+ <div class="card-body" style="background-color: #CCCCCC;">
+    <div class="row">
+      <div class="col-md">
+      	<%=image_tag rented_car.rented_car_image.url(:medium) %>
+      </div>
+      <div class="col-md">
+      	<p>Price per day, USD: <%= rented_car.price_per_day %></p>
+      	<p>model : <%= rented_car.model %></p>
+      	<p>serie: <%= rented_car.serie %></p>
+      	<p>location: <%= rented_car.location %></p>
+      </div>
+    </div>
+ </div>
+</div>
+</div>
+
+ 

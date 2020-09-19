@@ -1,11 +1,11 @@
 class RentedCarsController < ApplicationController
   
   def index
-    @rented_cars = RentedCar.includes(:user) # without N+1 query
+    @rented_cars = RentedCar.all # without N+1 query
   end
 
   def new
-    @rented_car = RentedCar.new(rented_cars_params)
+    @rented_car = RentedCar.new(rentedcars_params)
   end
  
   def create
@@ -19,7 +19,7 @@ class RentedCarsController < ApplicationController
   end
 
   def destroy
-  	@rented_car = current_user.rented_cars.find_by(params[user_id: user.id])
+  	@rentedcar = current_user.rented_cars.find_by(params[user_id: user.id])
     @rented_car.destroy
     redirect_to request.referrer || root_url
   end

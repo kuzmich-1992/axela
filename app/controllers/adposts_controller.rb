@@ -15,7 +15,6 @@ class AdpostsController < ApplicationController
     @adpost = current_user.adposts.build(adposts_params)
     if @adpost.save!
       respond_to do |format|
-        format.json { render json: @adpost }
         format.html { redirect_to request.referrer }
       end
     end
