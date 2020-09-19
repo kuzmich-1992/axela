@@ -3,14 +3,14 @@
     <%= image_tag("mazda-logo-mobile2x.png")%>
   </a>
   <% if current_user %>
-    <div class="dropdown">
-      <label for="dropdown">Link to logout:</label>
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      </a>
-      
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+     <div class="card-body" style="background-color: #FFFFCC;">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-      </div>
+        <%= link_to 'Adposts', adposts_url , class: 'dropdown-item' %>
+        <%= link_to 'Rent car for you', rented_cars_url , class: 'dropdown-item' %>
+     </div>
+  <% else %>
+    <div class="card-body" style="background-color: #FF9966;">
+      <%= link_to('Login', new_user_session_path) %>  
     </div>
   <% end %>
 </nav>
