@@ -1,7 +1,7 @@
 class RentedCarsController < ApplicationController
   
   def index
-    @rented_cars = RentedCar.all # without N+1 query
+    @rented_cars = RentedCar.order('created_at DESC') 
   end
 
   def new
