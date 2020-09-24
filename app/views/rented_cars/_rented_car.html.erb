@@ -10,10 +10,14 @@
       	<p>model : <%= rented_car.model %></p>
       	<p>serie: <%= rented_car.serie %></p>
       	<p>location: <%= rented_car.location %></p>
+        <%= form_for RentedLease.new do |f| %>
+          <%= f.hidden_field :rented_car_id, :value => rented_car.id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <p><%= f.submit "Add rented car", class: "btn btn-primary", id: "submitrent"%></p>
+        <% end %>
       </div>
     </div>
  </div>
 </div>
 </div>
 
- 
