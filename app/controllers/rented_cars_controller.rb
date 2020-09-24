@@ -5,7 +5,7 @@ class RentedCarsController < ApplicationController
   end
 
   def new
-    @rented_car = RentedCar.new(rentedcars_params)
+    @rented_car = RentedCar.new(rented_cars_params)
   end
  
   def create
