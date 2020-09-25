@@ -5,11 +5,11 @@ class RentedLeasesController < ApplicationController
   end
 
   def new
-    @rented_lease = RentedLease.new
+    @rented_lease = RentedLease.new(rented_leases_params)
   end
  
   def create
-    @rented_lease = current_user.rented_leases.build
+    @rented_lease = current_user.rented_leases.build(rented_leases_params)
     if @rented_lease.save!
       respond_to do |format|
         format.json { render json: @rented_lease }
