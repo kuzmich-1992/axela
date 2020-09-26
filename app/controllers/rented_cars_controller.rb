@@ -31,8 +31,4 @@ class RentedCarsController < ApplicationController
   def rented_cars_params
   	params.require(:rented_car).permit(:price_per_day, :model, :serie, :location, :rented_car_image)
   end
-
-  def not_rented(rented_car)
-    @rented_car = current_user.rented_leases.find_by(user_id: params[:user_id])
-  end
 end
