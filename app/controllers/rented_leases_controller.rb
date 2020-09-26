@@ -1,4 +1,5 @@
 class RentedLeasesController < ApplicationController
+  helper_method :not_rented
   
   def index
     @rented_leases = RentedLease.order('created_at DESC') 
