@@ -11,13 +11,19 @@
       	<p>serie: <%= rented_car.serie %></p>
       	<p>location: <%= rented_car.location %></p>
         <% if rented_car.rented_leases.find_by(params[rented_car_id:rented_car.id]).nil? %>
-          <%= form_for RentedLease.new do |f| %>
-            <%= f.hidden_field :rented_car_id, :value => rented_car.id %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <p><%= f.submit "Rent now", class: "btn btn-primary", id: "submitrent"%></p>
-          <% end %>
+          <div class="lease">
+              <%= form_for RentedLease.new do |f| %>
+              <%= f.hidden_field :rented_car_id, :value => rented_car.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <p><%= f.submit "Rent now", class: "btn btn-primary", id: "submitrent"%></p>
+            <% end %>
+          </div>
         <%else%>
-          <p>car already rent</p>
+        <div class="card">
+          <div class="card-body" style="background-color: #FF0000;">
+            <p><h1>car already rent</h1></p>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
