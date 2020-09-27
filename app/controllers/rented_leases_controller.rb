@@ -3,6 +3,7 @@ class RentedLeasesController < ApplicationController
   
   def index
     @rented_leases = RentedLease.order('created_at DESC') 
+    @rented_cars = RentedCar.order('created_at DESC') 
   end
 
   def new
@@ -21,6 +22,7 @@ class RentedLeasesController < ApplicationController
 
   def show
     @rented_lease = RentedLease.find(params[:id])
+    @rented_car = RentedCar.find(params[:id])
   end
 
   def rented_leases_params
