@@ -13,7 +13,7 @@ class RentedLeasesController < ApplicationController
     @rented_lease = current_user.rented_leases.build(rented_leases_params)
     if @rented_lease.save!
       respond_to do |format|
-        format.json { render json: @rented_lease }
+        format.json 
         format.html { redirect_to request.referrer }
       end
     end

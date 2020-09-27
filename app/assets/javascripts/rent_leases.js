@@ -14,7 +14,9 @@ $(document).ready(function(){
     cache: false,
     processData: false,  // Сообщить jQuery не передавать эти данные
     contentType: false   // Сообщить jQuery не передавать тип контента
-    })
+    }).done(function (data){
+      $("#test_block").load('#test_block');
+    });  
   
   });
 
