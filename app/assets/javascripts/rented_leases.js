@@ -19,7 +19,7 @@ $(document).ready(function(){
     processData: false,  // Сообщить jQuery не передавать эти данные
     contentType: false   // Сообщить jQuery не передавать тип контент
     }).done(function (data){
-
+      $("#rented_cars").load(location.href+" #rented_cars>*","")
       $("#submitrent").hide();
       
     });  
