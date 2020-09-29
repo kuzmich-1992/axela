@@ -15,6 +15,8 @@ class RentedCarsController < ApplicationController
         format.json { render json: @rented_car }
         format.html { redirect_to request.referrer }
       end
+    else 
+      flash.now[:notice] = "We have add photo"
     end
   end
 
