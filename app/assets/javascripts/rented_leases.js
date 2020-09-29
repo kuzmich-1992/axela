@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   event.stopPropagation();
   event.preventDefault();
-
+ 
   
 
   var fd = new FormData(document.querySelector("#new_rented_lease"));
@@ -19,7 +19,8 @@ $(document).ready(function(){
     processData: false,  // Сообщить jQuery не передавать эти данные
     contentType: false   // Сообщить jQuery не передавать тип контент
     }).done(function (data){
-      $('#lease').load()
+
+      $("#submitrent").hide();
       
     });  
   
