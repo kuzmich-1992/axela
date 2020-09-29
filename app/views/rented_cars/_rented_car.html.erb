@@ -17,7 +17,7 @@
               <%= form_for RentedLease.new do |f| %>
                 <%= f.hidden_field :rented_car_id, :value => rented_car.id %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <p><%= f.submit "Rent now", class: "btn btn-primary", id: "submitrent"%></p>
+                <p><%= f.submit "Rent now", class: "btn btn-primary submitrent", id: "submitrent"%></p>
               <% end %>
           
           <% else %>
