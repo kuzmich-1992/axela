@@ -6,6 +6,8 @@ $(document).ready(function(){
   var fd = new FormData(document.querySelector("form"));
   fd.append("CustomField", "This is some extra data");
 
+
+
   $.ajax({
     url: '/rented_cars',
     type: "POST",

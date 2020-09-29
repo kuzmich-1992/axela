@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
   $('#submitrent').on('click',function(event) {
+
+  event.stopPropagation();
   event.preventDefault();
+
+  
 
   var fd = new FormData(document.querySelector("#new_rented_lease"));
   fd.append("CustomField", "This is some extra data");
@@ -13,11 +17,11 @@ $(document).ready(function(){
     dataType: 'json',
     cache: false,
     processData: false,  // Сообщить jQuery не передавать эти данные
-    contentType: false   // Сообщить jQuery не передавать тип контента
-    success: function (data){
-       $('#submitrent').remove();
-      },
-    })
+    contentType: false   // Сообщить jQuery не передавать тип контент
+    }).done(function (data){
+      $('#lease').load()
+      
+    });  
   
   });
 

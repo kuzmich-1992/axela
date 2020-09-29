@@ -26,8 +26,10 @@ class RentedCarsController < ApplicationController
 
   def show
     @rented_car = RentedCar.find(params[:id])
+    @rented_lease = RentedLease.new rented_car:  @rented_car
+    @rented_leases = @rented_car.rented_leases.includes(:rented_car)
   end
-
+  
   def rented_cars_params
   	params.require(:rented_car).permit(:price_per_day, :model, :serie, :location, :rented_car_image)
   end
