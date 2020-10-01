@@ -1,8 +1,11 @@
 $(document).ready(function(){
 
-  $('#submitrent').on('click',function(event) {
-  debugger;
-  event.stopPropagation();
+  $('.submitrent').bind('click',function(event) {
+
+  $(this).closest(".card").find("form").submit();
+  $(this).toggleClass( "highlight" )
+
+  event.stopImmediatePropagation();
   event.preventDefault();
  
   
@@ -15,31 +18,23 @@ $(document).ready(function(){
     type: "POST",
     data: fd,
     dataType: 'json',
-    async: true,
-    
+    cache: false,
+    processData: false,  // Сообщить jQuery не передавать эти данные
+    contentType: false   // Сообщить jQuery не передавать тип 
 
-    }).done(function (){  
-      $(".submitrent").hide();
-      $("#rented_cars").load(location.href+" #rented_cars>*","")
-    }).fail(function() {
-       alert( "error" );
-    }).always(function() {
-      $(".submitrent").hide();
-      $("#rented_cars").load(location.href+" #rented_cars>*","")
+    }).done(function() { 
+
+    
+    $("#rented_cars").load(location.href+" #rented_cars>*","")
+    $(".submitrent highlight").parent().remove();
+
+     
+     });
+
     });
   
   });
 
-});
 
 
-// var jqxhr = $.ajax( "example.php" )
-//   .done(function() {
-//     alert( "success" );
-//   })
-//   .fail(function() {
-//     alert( "error" );
-//   })
-//   .always(function() {
-//     alert( "complete" );
-//   });
+
