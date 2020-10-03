@@ -4,13 +4,8 @@ $(document).ready(function(){
 
   event.stopPropagation();
   event.preventDefault();
-  console.log(this.id);
   $(this).parent().remove();
-
-  // $(this).closest(".card").find("form").submit();
-  // $(event.currentTarget).toggle(); 
-  // $(this).toggleClass( "highlight" );
- 
+  
   var theId = (this.id);
   console.log(this.id);
   var fd = new FormData(document.querySelector(`#new_rent_${theId}`));
@@ -23,21 +18,21 @@ $(document).ready(function(){
     data: fd,
     dataType: 'json',
     cache: false,
-    processData: false,  // Сообщить jQuery не передавать эти данные
-    contentType: false,   // Сообщить jQuery не передавать тип 
+    processData: false,  
+    contentType: false,   
 
     }).done(function() { 
 
-    
-     // $("#rented_cars").load(location.href+" #rented_cars>*","");
-     // $(this).parent().remove();
+     // $(".message").html("Your Alert Message");
+     // $(".rented_cars").load(location.href+" .rented_cars>*","");
+     
 
      
-     });
-
     });
-  
+
   });
+  
+});
 
 
 

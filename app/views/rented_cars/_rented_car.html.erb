@@ -19,10 +19,9 @@
                 <%= f.hidden_field :user_id, :value => current_user.id %>
                 <p><%= f.submit "Rent now", class: "btn btn-primary submitrent", id:"#{rented_car.id}"%></p>  
               <% end %>
-          
           <% else %>
 
-              <div class="card">
+              <div class="card-rentnow">
                 <div class="card-body" style="background-color: #FF0000;">
                 <p>car already rent at: <%= rented_car.rented_leases.first.updated_at %></p>
                 </div>
