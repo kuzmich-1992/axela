@@ -4,7 +4,8 @@ $(document).ready(function(){
 
   event.stopPropagation();
   event.preventDefault();
-  $(this).parent().remove();
+  // $(this).parent().remove();
+  $(this).parent().replaceWith( '<div class="card-rentnow"><p>car already rent</p></div>' );
   
   var theId = (this.id);
   console.log(this.id);
