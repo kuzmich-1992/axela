@@ -5,7 +5,7 @@ $(document).ready(function(){
   event.stopPropagation();
   event.preventDefault();
   // $(this).parent().remove();
-  $(this).parent().replaceWith( '<div class="card-rentnow"><p>car already rent</p></div>' );
+  $(this).parent().replaceWith( '<div class="card-rentnow"><div class="card-body" style="background-color: #FF0000;"><p>car already rent</p></div></div>' );
   
   var theId = (this.id);
   console.log(this.id);
@@ -34,7 +34,5 @@ $(document).ready(function(){
   });
   
 });
-
-
 
 
