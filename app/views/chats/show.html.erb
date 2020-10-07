@@ -4,6 +4,7 @@
         <div class="card border-dark mb-3">
         <div class="card-body" style="background-color: #FFFFCC; overflow: scroll; width: 1077px; height: 300px;">
         <div class="chat-message-container">
+          <div class="chat" data-channel-subscribe="chat" data-chat-id="<%= @chat.id %>">
           <% @chat_messages.each do |chat_message| %>
             <p class="mb-1">
               <div class="card-body" style="background-color: #c8d646;">
@@ -11,6 +12,7 @@
               </div>
             </p>
           <%end%>
+          </div>
         </div>
         </div>
         </div>
@@ -24,15 +26,35 @@
 
   <div class="card-body" style="background-color: #cdbc97;">
     <div class="row">
-    <%= form_for ChatMessage.new do |f| %>
+    <%= form_for ChatMessage.new, :remote => true do |f| %>
         <div class="col-md">
           <%= f.text_area :message, id:'message' %>
         </div>
         <div class="col-md">
           <div class="input-group-append">
-            <%= f.submit "send", class: "btn btn-primary", id: "submitmess"%>
+            <%= f.submit "send", class: 'btn btn-primary chat-input', id: "submitmess"%>
           </div>
         </div>
+        <%= f.hidden_field :chat_id, :value => @chat.id %>
     <% end %>
     </div>
   </div>
+
+  <div class="d-none" data-role="message-template">
+  <div class="chat-message-container">
+    <div class="row no-gutters">      
+      <div class="col">
+        <div class="message-content">
+          <p class="mb-1" data-role="message-text">
+
+          </p>
+
+          <div class="text-right">
+            <small data-role="message-date">
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
