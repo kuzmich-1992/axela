@@ -11,14 +11,17 @@
                       <div class="col">
                         <div class="message-content">
                           <p class="mb-1">
-                            <%= chat_message.message %>
-                          </p>
+                            <div class="card-body" style="background-color: #c8d646;">
+                              <%= chat_message.message %>
+                           
 
-                          <div class="text-right">
-                            <small>
-                              <%= chat_message.created_at %>
-                            </small>
-                          </div>
+                              <div class="text-right">
+                                <small>
+                                  <%= chat_message.created_at %>
+                                </small>
+                              </div>
+                            </div>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -27,8 +30,7 @@
               </div>    
             </div>
           </div>
-        </div>
-      
+        </div>    
 
   <p></p>
   <p></p>
