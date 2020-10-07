@@ -10,7 +10,7 @@ class ChatMessagesController < ApplicationController
     #   redirect_to "/chats/1"
     # end
 
-    # ChatChannel.broadcast_to @chat, @chat_message
+   ChatChannel.broadcast_to @chat, @chat_message
   end
 
   def show
