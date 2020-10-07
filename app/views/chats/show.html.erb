@@ -1,24 +1,37 @@
 <div class="col">
     <div class="chat" data-channel-subscribe="chat" data-chat-id="<%= @chat.id %>">
-     
+
+        <div class="card border-dark mb-3">
+        <div class="card-body" style="background-color: #FFFFCC">
         <div class="chat-message-container">
           <% @chat_messages.each do |chat_message| %>
             <p class="mb-1">
-              <%= chat_message.message %>
+              <div class="card-body" style="background-color: #c8d646;">
+                <%= chat_message.message %>
+              </div>
             </p>
           <%end%>
         </div>
-      
-    </div>    
-
-
-  <div class="card-body" style="background-color: #FFFFCC;">
-    <%= form_for ChatMessage.new do |f| %>
-      <div class="input-group mb-3">
-        <p><%= f.text_area :message, id:'message' %></p>
-        <div class="input-group-append">
-           <p><%= f.submit "send", class: "btn btn-primary", id: "submitmess"%></p>
         </div>
-      </div>
+        </div>
+       
+    </div> 
+
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <div class="card-body" style="background-color: #cdbc97;">
+    <div class="row">
+    <%= form_for ChatMessage.new do |f| %>
+        <div class="col-md">
+          <%= f.text_area :message, id:'message' %>
+        </div>
+        <div class="col-md">
+          <div class="input-group-append">
+            <%= f.submit "send", class: "btn btn-primary", id: "submitmess"%>
+          </div>
+        </div>
     <% end %>
+    </div>
   </div>
