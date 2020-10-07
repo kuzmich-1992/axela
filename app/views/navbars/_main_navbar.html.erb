@@ -7,6 +7,8 @@
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
         <%= link_to 'Adposts', adposts_path , class: 'dropdown-item' %>
         <%= link_to 'Rent car for you', rented_cars_path , class: 'dropdown-item' %>
+        <%= link_to 'General chat', chats_path , class: 'dropdown-item', href: "/chats/1" %>
+        
      </div>
   <% else %>
     <div class="card-body" style="background-color: #FF9966;">

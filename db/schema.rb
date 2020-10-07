@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_122723) do
+ActiveRecord::Schema.define(version: 2020_10_06_213600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(version: 2020_09_29_122723) do
     t.index ["user_id"], name: "index_adposts_on_user_id"
   end
 
+  create_table "chat_messages", force: :cascade do |t|
+    t.bigint "chat_id"
+    t.bigint "user_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_chat_messages_on_chat_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rented_cars", force: :cascade do |t|
     t.string "price_per_day"
     t.string "model"
@@ -93,6 +109,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_122723) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "adposts", "users"
+  add_foreign_key "chat_messages", "chats"
+  add_foreign_key "chat_messages", "users"
   add_foreign_key "rented_cars", "users"
   add_foreign_key "rented_leases", "rented_cars"
   add_foreign_key "rented_leases", "users"
