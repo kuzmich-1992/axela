@@ -11,16 +11,28 @@
                       <div class="col">
                         <div class="message-content">
                           <p class="mb-1">
+
+                            <% if chat_message.user_id == current_user.id %>
                             <div class="card-body" style="background-color: #c8d646;">
                               <%= chat_message.message %>
-                           
-
+                              <p> id: <%= chat_message.user_id %></p>
                               <div class="text-right">
                                 <small>
                                   <%= chat_message.created_at %>
                                 </small>
                               </div>
                             </div>
+                            <% else %>
+                            <div class="card-body" style="background-color: #d1b681;">
+                              <%= chat_message.message %>
+                              <p> id: <%= chat_message.user_id %></p>
+                              <div class="text-right">
+                                <small>
+                                  <%= chat_message.created_at %>
+                                </small>
+                              </div>
+                            </div>
+                            <% end %>
                           </p>
                         </div>
                       </div>
@@ -56,18 +68,27 @@
   <div class="chat-message-container">
     <div class="row no-gutters">      
       <div class="col">
+        <% if @chat_message.user_id == current_user.id %>
         <div class="card-body" style="background-color: #c8d646;">
         <div class="message-content">
-          <p class="mb-1" data-role="message-text">
-
-          </p>
-
+          <p class="mb-1" data-role="message-text"></p>
+          <p class="mb-1" data-role="message-user-id"></p>
+          <div class="text-right">
+            <small data-role="message-date">
+            </small>
+          </div>
+        <% else %>
+        <div class="card-body" style="background-color: #d1b681;">
+        <div class="message-content">
+          <p class="mb-1" data-role="message-text"></p>
+          <p class="mb-1" data-role="message-user-id"></p>
           <div class="text-right">
             <small data-role="message-date">
             </small>
           </div>
         </div>
         </div>
+        <% end %>
         <p></p>
       </div>
     </div>
