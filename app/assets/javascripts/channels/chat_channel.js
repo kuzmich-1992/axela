@@ -4,6 +4,7 @@ $(function() {
         chat_id = $element.data('chat-id')
         messageTemplate = $('[data-role="message-template"]');
 
+
     $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000)        
 
     App.cable.subscriptions.create(
@@ -24,3 +25,14 @@ $(function() {
     );
   });
 });
+
+
+
+
+
+// if ( $('#thing').text() == "Phil")
+// if ( content.find('[data-role="message-user-id"]').text(data.user_id) == 1){
+
+//   console.log("1");
+
+// }
