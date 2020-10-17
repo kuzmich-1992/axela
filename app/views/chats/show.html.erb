@@ -11,12 +11,12 @@
                       <div class="col">
                         <div class="message-content">
                           <p class="mb-1">
-
+                            <div id="messident-<%= chat_message.user_id %>">LL</div>
                             <% if chat_message.user_id == current_user.id %>
                             <div class="card-body" style="background-color: #c8d646;">
                             <% else %>
                             <div class="card-body" style="background-color: #d1b681;">
-                            <% end %>
+                            <% end %>    
                               <%= chat_message.message %>
                               <p> id: <%= chat_message.user_id %></p>
                               <div class="text-right">
@@ -42,7 +42,7 @@
 
   <div class="card-body" style="background-color: #cdbc97;">
     <div class="row">
-    <%= form_for ChatMessage.new, :remote => true do |f| %>
+    <%= form_for ChatMessage.new, :remote => true, :html => { :id => "new_mess_#{current_user.id}" } do |f| %>
         <div class="col-md">
           <%= f.text_area :message, id:'message' %>
         </div>
@@ -76,11 +76,12 @@
   </div>
 </div>
 
-
-<script>
-$('#submitmess').on('click',function(event) {
-
-  $('#card-body').replaceWith('<div class="card-body" style="background-color: #AAAAAA;">' );
-
-});
-</script>
+<style> 
+            #messident-1 { 
+                color: green; 
+            } 
+            #messident-2 { 
+                color: red; 
+            } 
+            
+</style> 
