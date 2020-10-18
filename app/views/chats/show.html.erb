@@ -62,11 +62,8 @@
     <div class="row no-gutters">      
       <div class="col">
         <div class="<%= current_user.id == @chat_message.user_id ? 'message-sent' : 'message-received' %>">  
-              <% if @chat_message.user_id == current_user.id %>
-                      <div class="card-body" style="background-color: #c8d646;">
-              <% else %>
-                      <div class="card-body" style="background-color: #d1b681;">
-              <% end %>
+    
+        <div class="card-body" style="background-color: #c8d646;">
 
         <div class="message-content">
           <p class="mb-1" data-role="message-text"></p>
