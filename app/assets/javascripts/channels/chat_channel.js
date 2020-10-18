@@ -18,6 +18,7 @@ $(function() {
           content.find('[data-role="message-text"]').text(data.message);
           content.find('[data-role="message-date"]').text(data.updated_at);
           content.find('[data-role="message-user-id"]').text(data.user_id);
+       
           $element.append(content);
           $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
         }
@@ -29,10 +30,3 @@ $(function() {
 
 
 
-
-// if ( $('#thing').text() == "Phil")
-// if ( content.find('[data-role="message-user-id"]').text(data.user_id) == 1){
-
-//   console.log("1");
-
-// }

@@ -11,12 +11,12 @@
                       <div class="col">
                         <div class="message-content">
                           <p class="mb-1">
-                            <div id="messident-<%= chat_message.user_id %>">LL</div>
+                            <div class="<%= current_user.id == chat_message.user_id ? 'message-sent' : 'message-received' %>">  
                             <% if chat_message.user_id == current_user.id %>
-                            <div class="card-body" style="background-color: #c8d646;">
-                            <% else %>
                             <div class="card-body" style="background-color: #d1b681;">
-                            <% end %>    
+                            <% else %>
+                            <div class="card-body" style="background-color: #c8d646;">
+                            <% end %>  
                               <%= chat_message.message %>
                               <p> id: <%= chat_message.user_id %></p>
                               <div class="text-right">
@@ -24,6 +24,7 @@
                                   <%= chat_message.created_at %>
                                 </small>
                               </div>
+                            </div>
                             </div>
                           </p>
                         </div>
@@ -60,7 +61,13 @@
   <div class="chat-message-container">
     <div class="row no-gutters">      
       <div class="col">
-        <div class="card-body" style="background-color: #c8d646;"> 
+        <div class="<%= current_user.id == @chat_message.user_id ? 'message-sent' : 'message-received' %>">  
+              <% if @chat_message.user_id == current_user.id %>
+                      <div class="card-body" style="background-color: #c8d646;">
+              <% else %>
+                      <div class="card-body" style="background-color: #d1b681;">
+              <% end %>
+
         <div class="message-content">
           <p class="mb-1" data-role="message-text"></p>
           <p class="mb-1" data-role="message-user-id"></p>
@@ -70,18 +77,10 @@
           </div>
         </div>
         </div>
+        </div>
         <p></p>
       </div>
     </div>
   </div>
 </div>
 
-<style> 
-            #messident-1 { 
-                color: green; 
-            } 
-            #messident-2 { 
-                color: red; 
-            } 
-            
-</style> 

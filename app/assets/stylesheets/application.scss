@@ -14,3 +14,26 @@
  *= require_self
  */
 @import "bootstrap";
+
+.message-sent {
+  position: relative;
+  background-color: red;
+  border-color: #red;
+  margin: 5px 20px;
+  padding: 10px;
+  float: right;
+
+  &.self {
+    background-color: red;
+    float: right;
+  }
+}
+
+
+.message-received {
+  background-color: blue;
+  border-color: #blue;
+  margin: 5px 20px;
+  padding: 10px;
+  float: left;
+}

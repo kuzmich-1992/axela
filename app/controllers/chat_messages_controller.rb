@@ -5,10 +5,9 @@ class ChatMessagesController < ApplicationController
     @chat_message = ChatMessage.create user: current_user,
                                        chat: @chat,
                                        message: params.dig(:chat_message, :message)
-    # if @chat_message.save
-    #   flash[:success] = "mess was send successfully"
-    #   redirect_to "/chats/1"
-    # end
+    respond_to do |format|
+      format.js
+    end
 
    ChatChannel.broadcast_to @chat, @chat_message
   end
