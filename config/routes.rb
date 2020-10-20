@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :rented_cars
   resources :rented_leases , :defaults => { :format => :json }
   resources :chats
+  resources :chats, only: [:create] do
+    resources :chat_messages, only: [:create]
+  end
   resources :chat_messages
   root 'home#index'
   resources :conversations, only: [:create]
@@ -16,3 +19,4 @@ Rails.application.routes.draw do
    end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+

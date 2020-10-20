@@ -1,7 +1,10 @@
 class ChatsController < ApplicationController
 
-def index
-    @chats = Chat.all
+  def index
+    session[:chats] ||= []
+
+    @users = User.all.where.not(id: current_user)
+    @chats = Chat.includes(:recipient, :chat_messages)
   end
 
   def new
@@ -25,4 +28,26 @@ def index
   def permitted_parameters
     params.require(:chat).permit(:name)
   end
+
+  def close
+    @chat = Chat.find(params[:id])
+
+    session[:chats].delete(@chat.id)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  private
+
+  def add_to_chats
+    session[:chats] ||= []
+    session[:chats] << @chat.id
+  end
+
+  def conversated?
+    session[:chats].include?(@chat.id)
+  end
  end
+

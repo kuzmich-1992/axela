@@ -24,3 +24,4 @@ class Chat < ApplicationRecord
     user == recipient ? sender : recipient
   end
 end
+

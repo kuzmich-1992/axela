@@ -2,6 +2,7 @@ class ChatMessagesController < ApplicationController
   before_action :load_chat
   
   def create
+    
     @chat_message = ChatMessage.create user: current_user,
                                        chat: @chat,
                                        message: params.dig(:chat_message, :message)
@@ -13,7 +14,7 @@ class ChatMessagesController < ApplicationController
   end
 
   def show
-    @chat = Chat.find(params[:id])
+    @chat = Chat.includes(:recipient).find(params[:id])
   end
 
   def load_chat
