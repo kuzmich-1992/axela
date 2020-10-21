@@ -38,16 +38,5 @@ class ChatsController < ApplicationController
       format.js
     end
   end
-
-  private
-
-  def add_to_chats
-    session[:chats] ||= []
-    session[:chats] << @chat.id
-  end
-
-  def conversated?
-    session[:chats].include?(@chat.id)
-  end
  end
 

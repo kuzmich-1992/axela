@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   resources :rented_cars
   resources :rented_leases , :defaults => { :format => :json }
   resources :chats
-  resources :chats, only: [:create] do
-    resources :chat_messages, only: [:create]
-  end
   resources :chat_messages
   root 'home#index'
   resources :conversations, only: [:create]
