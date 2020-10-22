@@ -7,6 +7,6 @@ class Chat < ApplicationRecord
 
   validates :sender_id, uniqueness: { scope: :recipient_id }
   
-  end
+  
 end
 
