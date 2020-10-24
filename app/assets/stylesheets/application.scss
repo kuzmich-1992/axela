@@ -16,10 +16,12 @@
 @import "bootstrap";
 
 body {
-  background-image: url('mazda3_sedan.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background: {
+     image: asset_url("mazda3_sedan.jpeg");
+     repeat: no-repeat;
+     attachment: fixed;
+     size: 100% 100%;
+  }
 }
 
 
