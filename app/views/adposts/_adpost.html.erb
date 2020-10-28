@@ -4,8 +4,9 @@
 	<li id="adpost-<%= adpost.id %>">
 	  <div class="container">
       <div class="row">
-	  <div class="col-md"><%=image_tag adpost.adpost_image.url(:medium) %></div>
-	 
+      
+	    <div class="col-md"><%= image_tag adpost.avatar_url(:medium) %></div>
+     
 	    <div class="col-md">
 	      <p>Price, USD: <%= adpost.price %></p>
 	      <p>Year of production: <%= adpost.year %></p>

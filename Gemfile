@@ -39,11 +39,15 @@ gem 'devise'
 gem "pundit"
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'paperclip'
-gem 'image_processing'
 gem 'pry'
 gem 'redis'
 gem 'cloudinary'
+gem 'aws-sdk'
+gem 'terrapin'
+gem 'paperclip'
+gem 'carrierwave'
+gem 'autoprefixer-rails'
+gem 'mini_racer', platforms: :ruby
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,5 +1,7 @@
 {
   "name": "axela",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "autoprefixer": "^8.4.0"
+  }
 }
