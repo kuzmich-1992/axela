@@ -33,6 +33,6 @@ class RentedCarsController < ApplicationController
   end
   
   def rented_cars_params
-  	params.require(:rented_car).permit(:price_per_day, :model, :serie, :location, :rented_car_image)
+  	params.require(:rented_car).permit(:price_per_day, :model, :serie, :location, :avatar)
   end
 end

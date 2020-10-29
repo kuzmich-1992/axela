@@ -3,7 +3,9 @@
  <div class="card-body" style="background-color: #CCCCCC;">
     <div class="row">
       <div class="col-md">
-      	<%=image_tag rented_car.rented_car_image.url(:medium) %>
+    
+        <%= image_tag rented_car.avatar_url(:medium) %>
+     
       </div>
       <div class="col-md">
       	<p>Price per day, USD: <%= rented_car.price_per_day %></p>
