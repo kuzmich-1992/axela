@@ -30,6 +30,6 @@ class AdpostsController < ApplicationController
   end
 
   def adposts_params
-  	params.require(:adpost).permit(:price, :year, :model, :serie, :body, :gearbox, :engine_type, :location, :avatar)
+  	params.require(:adpost).permit(:price, :year, :model, :serie, :body, :gearbox, :engine_type, :location, :avatar, :avatar_cache)
   end
 end
