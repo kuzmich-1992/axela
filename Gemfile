@@ -41,9 +41,9 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'pry'
 gem 'redis'
+gem 'carrierwave'
 gem 'cloudinary'
 gem 'terrapin'
-gem 'carrierwave'
 gem 'autoprefixer-rails'
 gem 'mini_racer', platforms: :ruby
 group :development, :test do
