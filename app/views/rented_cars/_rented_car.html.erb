@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md">
     
-        <%= image_tag rented_car.avatar_url(:medium) %>
+        <div class="col-md"><%= cl_image_tag(rented_car.avatar_url, :crop => :fill, :width => 400, :height => 300, :alt => rented_car.avatar, :cloud_name => 'kuzmich-1992') %></div>
      
       </div>
       <div class="col-md">
