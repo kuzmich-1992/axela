@@ -1,4 +1,4 @@
-<%= cloudinary_js_config %>
+
 <div class="container" id='cont'>
   <div class="row">
     <div class="col-md-8">
@@ -40,8 +40,7 @@
               <p><%= f.label :location%></p>
               <p><%= f.text_field :location, id:'location'  %></p>
               <p><%= f.label :adpost_image %></p>
-              <p><%= f.hidden_field :avatar_cache %></p>
-              <p><%= f.file_field :avatar , direct_upload: true %></p>
+              <p><%= f.file_field :avatar, id:'adpost_image', name: "file" %></p>
               <p><%= f.submit "Add advert", class: "btn btn-primary", id: "submitadv"%></p>
             <% end %>
             </div>

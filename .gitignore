@@ -26,4 +26,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/cloudinary.yml
+<<<<<<< HEAD
 /config/initializers/cloudinary.rb
+=======
+config/initializers/cloudinary.rb 
+>>>>>>> 858a502... cloud ok

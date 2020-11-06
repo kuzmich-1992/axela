@@ -4,9 +4,15 @@
 	<li id="adpost-<%= adpost.id %>">
 	  <div class="container">
       <div class="row">
+<<<<<<< HEAD
       
 	    <div class="col-md"><%= cl_image_tag(adpost.avatar_url, :crop => :fill, :width => 400, :height => 300, :alt => adpost.avatar, :cloud_name => 'kuzmich-1992') %></div>
    
+=======
+      <% if adpost.avatar.present? %>
+	    <div class="col-md"><%= image_tag adpost.avatar_url %></div>
+      <%end%>
+>>>>>>> 858a502... cloud ok
 	    <div class="col-md">
 	      <p>Price, USD: <%= adpost.price %></p>
 	      <p>Year of production: <%= adpost.year %></p>
