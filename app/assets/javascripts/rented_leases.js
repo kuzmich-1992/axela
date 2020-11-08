@@ -1,12 +1,12 @@
-$(document).ready(function(){
+$(window).on('load',function(){
 
-  $('.submitrent').on('click',function(event) {
+  // $('.submitrent').on('click',function(event) {
+  $(document).on ("click", ".submitrent", function (event) {
 
+  $(this).parent().replaceWith( '<div class="card-rentnow"><div class="card-body" style="background-color: #FF0000;"><p>car already rent</p></div></div>' );
   event.stopPropagation();
   event.preventDefault();
-  // $(this).parent().remove();
-  $(this).parent().replaceWith( '<div class="card-rentnow"><div class="card-body" style="background-color: #FF0000;"><p>car already rent</p></div></div>' );
-  
+ 
   var theId = (this.id);
   console.log(this.id);
   var fd = new FormData(document.querySelector(`#new_rent_${theId}`));
@@ -24,10 +24,7 @@ $(document).ready(function(){
 
     }).done(function() { 
 
-     // $(".message").html("Your Alert Message");
-     // $(".rented_cars").load(location.href+" .rented_cars>*","");
-     
-
+      
      
     });
 
