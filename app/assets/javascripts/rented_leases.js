@@ -1,6 +1,5 @@
 $(window).on('load',function(){
 
-  // $('.submitrent').on('click',function(event) {
   $(document).on ("click", ".submitrent", function (event) {
 
   $(this).parent().replaceWith( '<div class="card-rentnow"><div class="card-body" style="background-color: #FF0000;"><p>car already rent</p></div></div>' );
